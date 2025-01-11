@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Página inicial{% endblock title %}
+{% block content %}
+<br>
+<div class="card">
+    <div class="card-header">
+        Detalles de la Película
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ movie | capfirst }}</h5>
+      <ul>
+        <li>Nombre: {{ movie.title }}</li>
+        <li>Género: {{ movie.get_type_display }}</li>
+        <li>Director: {{ movie.director_name }} </li>
+        <li>Año: {{ movie.old}} </li>
+        <li>Sinopsis: {{ movie.synopsis }}</li>
+      </ul>
+      <a href="{% url "movie:index" %}" class="btn btn-secondary">Regresar</a>
+    </div>
+  </div>
+{% endblock content %}
